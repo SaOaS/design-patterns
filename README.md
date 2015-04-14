@@ -1,3 +1,2 @@
 # Patron de conception
-==============
-observateur/observable
+- observateur/observable
