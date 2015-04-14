@@ -1,2 +1,2 @@
-# design-patterns
-Patron de conception
+# Patron de conception
+- observateur/observable
