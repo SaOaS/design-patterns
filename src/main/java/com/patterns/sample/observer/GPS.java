@@ -9,37 +9,44 @@ public class GPS extends Observable {
     private String position;
     private int precision;
 
-    public GPS(String position, int precision) {
-        this.position = position;
-        this.precision = precision;
-    }
-
     public GPS() {
+        super();
     }
 
-    // Méthode permettant de notifier tous les observateurs lors d'un changement d'état du GPS.
+    /**
+     * Méthode permettant de notifier tous les observateurs lors d'un changement d'état
+     */
     public void notifierObservateurs() {
         setChanged();// Méthode de l'API.
         notifyObservers();// Egalement une méthode de l'API.
     }
 
-    // Méthode qui permet de mettre à jour de façon artificielle le GPS.
-    // Dans un cas réel, on utiliserait les valeurs retournées par les capteurs.
+    /**
+     * Méthode qui permet de mettre à jour de façon artificielle le GPS.
+     *
+     * @param position
+     * @param precision
+     */
     public void setMesures(String position, int precision) {
         this.position = position;
         this.precision = precision;
         notifierObservateurs();
     }
 
-    // Méthode "tiré" donc c'est aux observeurs d'aller chercher les valeurs désiré grâce à un objet Gps.
-    // Pour cela on trouve un accesseur en lecture pour position.
+    public int getPrecision() {
+        return precision;
+    }
+
+    public void setPrecision(int precision) {
+        this.precision = precision;
+    }
+
     public String getPosition() {
         return position;
     }
 
-    // Un accesseur en lecture pour précision.
-    public int getPrecision() {
-        return precision;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     @Override
